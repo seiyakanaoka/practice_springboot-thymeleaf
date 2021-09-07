@@ -45,7 +45,7 @@ public class CustomerController {
 	@GetMapping(path = "edit", params = "form")
 	String editForm(@RequestParam Integer id, CustomerForm form) {
 		Optional<Customer> customer = customerService.findOne(id);
-		BeanUtils.copyProperties(customer,  form);;
+		BeanUtils.copyProperties(customer, form);
 		return "customers/edit";
 	}
 	
