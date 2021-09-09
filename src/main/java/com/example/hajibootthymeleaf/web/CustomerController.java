@@ -43,20 +43,21 @@ public class CustomerController {
 	}
 	
 	@GetMapping(path = "edit", params = "form")
-	String editForm(@RequestParam Integer id, CustomerForm form) {
+	String editForm(@RequestParam Integer id, CustomerForm form, Model model) {
 		Optional<Customer> customer = customerService.findOne(id);
 		BeanUtils.copyProperties(customer, form);
+		model.addAttribute("customer", customer);
 		return "customers/edit";
 	}
 	
 	@PostMapping(path = "edit")
 	String edit(@RequestParam Integer id, @Validated CustomerForm form, BindingResult result) {
 		if (result.hasErrors()) {
-			return editForm(id, form);
+			return editForm(id, form, null);
 		}
 		Customer customer = new Customer();
-		BeanUtils.copyProperties(form,  customer);;
-		customer.setId(id);;
+		BeanUtils.copyProperties(form, customer);
+		customer.setId(id);
 		customerService.update(customer);
 		return "redirect:/customers";
 	}

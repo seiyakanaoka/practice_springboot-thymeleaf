@@ -10,12 +10,12 @@
 			<dl>
 				<dt><label for="lastName">姓</label></dt>
 				<dd>
-					<input type="text" id="lastName" th:field="*{lastName}" name="lastName" th:errorclass="error-input" value="山田"/>
+					<input type="text" id="lastName" th:field="${customer.lastName}" name="lastName" th:errorclass="error-input" value="山田"/>
 					<span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="error-messages">error!</span>
 				</dd>
 				<dt><label for="firstName">名</label></dt>
 				<dd>
-					<input type="text" id="firstName" th:field="*{firstName}" name="firstName" th:errorclass="error-input" value="太郎"/>
+					<input type="text" id="firstName" th:field="${customer.firstName}" name="firstName" th:errorclass="error-input" value="太郎"/>
 					<span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="error-messages">error!</span>
 				</dd>
 			</dl>
