@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout">
 	<head>
 		<meta charset="UTF-8" />
 		<title>顧客一覧</title>
@@ -9,7 +9,7 @@
 	<body>
 		<div class="container">
 			<h1>顧客管理システム</h1>
-			<div class="col-sm-12">
+			<div layput;fragment="content" class="col-sm-12">
 				<form th:action="@{/customers/create}" th:object="${customerForm}" class="form-horizontal" method="post">
 					<fieldset>
 						<legend>顧客情報作成</legend>
