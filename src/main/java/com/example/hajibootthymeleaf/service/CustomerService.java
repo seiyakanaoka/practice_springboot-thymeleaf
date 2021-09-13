@@ -1,6 +1,7 @@
 package com.example.hajibootthymeleaf.service;
 
 import com.example.hajibootthymeleaf.domain.Customer;
+import com.example.hajibootthymeleaf.domain.User;
 import com.example.hajibootthymeleaf.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,11 +24,13 @@ public class CustomerService {
 		return customerRepository.findById(id);
 	}
 	
-	public Customer create(Customer customer) {
+	public Customer create(Customer customer, Optional<User> user) {
+		customer.setUser(user);
 		return customerRepository.save(customer);
 	}
 	
-	public Customer update(Customer customer) {
+	public Customer update(Customer customer, Optional<User> user) {
+		customer.setUser(user);
 		return customerRepository.save(customer);
 	}
 	

@@ -4,20 +4,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Optional;
+
 import javax.persistence.*;
 
-@Entity
-@Table(name = "customers")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "customers")
 public class Customer {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String firstName;
 	private String lastName;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(nullable = true, name = "username")
-	private User user;
+	private Optional<User> user;
 }
