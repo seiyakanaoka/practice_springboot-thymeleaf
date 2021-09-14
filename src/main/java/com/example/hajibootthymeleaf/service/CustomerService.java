@@ -17,7 +17,7 @@ public class CustomerService {
 	CustomerRepository customerRepository;
 	
 	public List<Customer> findAll() {
-		return customerRepository.findAllOrderByName();
+		return customerRepository.findAllWithUserOrderByName();
 	}
 	
 	public Optional<Customer> findOne(Integer id) {
