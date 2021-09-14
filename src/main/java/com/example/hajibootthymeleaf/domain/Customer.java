@@ -21,5 +21,5 @@ public class Customer {
 	private String lastName;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(nullable = true, name = "username")
-	private Optional<User> user;
+	private User user;
 }

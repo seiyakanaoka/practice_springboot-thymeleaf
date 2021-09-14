@@ -24,12 +24,12 @@ public class CustomerService {
 		return customerRepository.findById(id);
 	}
 	
-	public Customer create(Customer customer, Optional<User> user) {
+	public Customer create(Customer customer, User user) {
 		customer.setUser(user);
 		return customerRepository.save(customer);
 	}
 	
-	public Customer update(Customer customer, Optional<User> user) {
+	public Customer update(Customer customer, User user) {
 		customer.setUser(user);
 		return customerRepository.save(customer);
 	}
